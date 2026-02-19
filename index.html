@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mr.Mudbelly.com - Puppet Music Videos & Parodies</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #0f0f0f;
+      --text: #e0e0e0;
+      --accent: #ff2a6d;
+      --accent2: #00f0ff;
+      --card: rgba(26,26,26,0.85);
+      --overlay: rgba(0,0,0,0.6);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: linear-gradient(to bottom, #000, #111);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      border-bottom: 4px solid var(--accent);
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,42,109,0.15) 0%, transparent 70%);
+      animation: pulse 12s infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes pulse { 0% { transform: scale(1); opacity: 0.4; } 100% { transform: scale(1.3); opacity: 0.1; } }
+    h1 {
+  font-size: 3.8rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #fff, var(--accent), var(--accent2), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255,42,109,0.7);
+  margin: 0 auto;
+  max-width: 100%;                /* prevents overflow */
+  word-break: break-all;          /* breaks long words if needed */
+  hyphens: auto;                  /* better line breaking */
+  line-height: 1.1;               /* tighter vertical spacing */
+}
+
+@media (max-width: 768px) {       /* tablets and smaller */
+  h1 {
+    font-size: 3rem;              /* smaller base */
+    letter-spacing: 3px;          /* reduce spacing */
+  }
+}
+
+@media (max-width: 480px) {       /* phones */
+  h1 {
+    font-size: 2.6rem;            /* even smaller on narrow screens */
+    letter-spacing: 2px;
+    padding: 0 10px;              /* breathing room on sides */
+  }
+}
+    .tagline { font-size: 1.4rem; margin-top: 0.8rem; opacity: 0.9; font-style: italic; }
+    main { flex: 1; padding: 3rem 1rem; max-width: 1100px; margin: 0 auto; width: 100%; }
+    .intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      font-size: 1.2rem;
+    }
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+      justify-items: center; /* centers cards in grid cells */
+    }
+    .link-card {
+      width: 220px;
+      height: 220px;
+      background: var(--card);
+      background-size: cover;
+      background-position: center;
+      border: 2px solid #333;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--text);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .link-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--overlay);
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+    .link-card-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      width: 100%;
+      height: 100%;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .link-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      border-color: var(--accent);
+      box-shadow: 0 0 25px rgba(255,42,109,0.5), 0 0 50px rgba(0,240,255,0.3); /* uniform subtle glow on hover */
+    }
+    .link-card:hover::before {
+      background: rgba(0,0,0,0.45); /* slightly lighter overlay on hover */
+    }
+    .link-card i {
+      font-size: 3.2rem;
+      color: var(--accent2);
+      text-shadow: 0 0 10px rgba(0,240,255,0.6);
+    }
+    .link-card span {
+      font-size: 1.25rem;
+      font-weight: bold;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
+      line-height: 1.3;
+    }
+    .special-btn {
+      background: linear-gradient(45deg, var(--accent), #ff5e8c);
+      color: white;
+      font-size: 1.4rem;
+      font-weight: bold;
+      padding: 1.2rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      margin: 1rem auto;
+      width: fit-content;
+      transition: all 0.3s;
+      box-shadow: 0 8px 25px rgba(255,42,109,0.4);
+    }
+    .special-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 35px rgba(255,42,109,0.6);
+    }
+    .contact-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 2.5rem 0;
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      border-top: 1px solid #333;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.8rem; }
+      .tagline { font-size: 1.2rem; }
+      .link-card { width: 200px; height: 200px; }
+      .link-card i { font-size: 2.8rem; }
+      .link-card span { font-size: 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mr.Mudbelly</h1>
+    <div class="tagline">Puppet Music Videos • Parodies • Chaos</div>
+  </header>
+
+  <main>
+    <div class="intro">
+      <p>Welcome to the official home of Mr.Mudbelly — where your idols get puppetized. Support the madness! Contact for collabs.</p>
+    </div>
+
+    <div class="links-grid">
+      <a href="https://walmrt.us/47r2fC7" class="link-card" target="_blank" rel="noopener noreferrer" style="background-image: url(https://media.discordapp.net/attachments/1072268687370891417/1473017286469091491/cokelly_Muppet_Bjorn_Ulvaeus_as_a_funny_muppet_from_fraggle_roc_5172dad6-6465-4b73-83e3-f685a41f7125.png?ex=6997f980&is=6996a800&hm=497a16ff314a9be3f1b694124e34bf5b018fb892ccc4f69b8a414f3c3f25813f&=&format=webp&quality=lossless&width=1180&height=1772);">
+        <div class="link-card-content">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Affiliate Shop</span>
+        </div>
+      </a>
+
+      <a href="https://www.cameo.com/mr.mudbelly" class="link-card" target="_blank" rel="noopener noreferrer" style="background-image: url(https://media.discordapp.net/attachments/1072268687370891417/1471192611371880681/cokelly_muppet_hands_3bb1bc22-a91b-4802-8bdd-527332c288fe.png?ex=6997eda3&is=69969c23&hm=2d636c9c5b57222681c91165b91567a6d36387aa8a0028c4dc61a697f8842c0a&=&format=webp&quality=lossless&width=1180&height=1772);">
+        <div class="link-card-content">
+          <i class="fas fa-video"></i>
+          <span>Book a Cameo</span>
+        </div>
+      </a>
+
+      <a href="https://www.facebook.com/people/Mrmudbelly-Connected-Page/61573566361994" class="link-card" target="_blank" rel="noopener noreferrer" style="background-image: url(https://media.discordapp.net/attachments/1072268687370891417/1470541829173805066/cokelly_cute_Muppet_Paul_OBrien_playing_an_old_mandolin_as_a_fu_13436ae2-5edd-47a8-a213-67c7d7c0e0fb.png?ex=6998328d&is=6996e10d&hm=d2b478c1c90121fb4829a53a74d5771e8d0ff08f90a393fd556313d7044ce42b&=&format=webp&quality=lossless&width=1180&height=1772);">
+        <div class="link-card-content">
+          <i class="fab fa-facebook"></i>
+          <span>Facebook</span>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/mr.mudbelly" class="link-card" target="_blank" rel="noopener noreferrer" style="background-image: url(https://media.discordapp.net/attachments/1072268687370891417/1463608902208848098/cokelly_muppet_mike_inez_playing_bass_guitar_as_a_funny_muppet._1afd325e-1731-41ec-ae7e-8d9265d90f9d.png?ex=69980642&is=6996b4c2&hm=50153d259947db5d8938ea0b7408a3ebab1d9cbeacc485b339e8873d0a0374d2&=&format=webp&quality=lossless&width=1180&height=1772);">
+        <div class="link-card-content">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </div>
+      </a>
+
+      <a href="https://www.youtube.com/@mr.mudbelly" class="link-card" target="_blank" rel="noopener noreferrer" style="background-image: url(https://media.discordapp.net/attachments/1072268687370891417/1469026539797483635/cokelly_cute_fuzzy_baby_muppet_with_big_eyes_like_a_cute_muppet_1d437b3b-4088-4f58-9c77-c5dd22528ba3.png?ex=6997f554&is=6996a3d4&hm=7d222693406fa84e9e95446da6a3c9d9cc2e67ef5e0d9832319267d2eab80ed5&=&format=webp&quality=lossless&width=1180&height=1772);">
+        <div class="link-card-content">
+          <i class="fab fa-youtube"></i>
+          <span>YouTube</span>
+        </div>
+      </a>
+
+      <a href="https://www.tiktok.com/@mr.mudbelly" class="link-card" target="_blank" rel="noopener noreferrer" style="background-image: url(https://media.discordapp.net/attachments/1072268687370891417/1463251596073762928/cokelly_muppet_lars_ulrich_playing_drums_as_an_angry_little_mup_d9027341-ddc1-4989-85e1-153c18ca7c0b.png?ex=69980afe&is=6996b97e&hm=b4421617c1de2727dc951feab3d80dea1186799a9e4a0d2f1aa845ab79eeba75&=&format=webp&quality=lossless&width=1180&height=1772);">
+        <div class="link-card-content">
+          <i class="fab fa-tiktok"></i>
+          <span>TikTok</span>
+        </div>
+      </a>
+
+      <a href="https://www.paypal.biz/mrmudbelly" class="link-card" target="_blank" rel="noopener noreferrer" style="background-image: url(https://media.discordapp.net/attachments/1072268687370891417/1460742588457025587/cokelly_muppet_nick_mason_playing_drums_as_a_funny_muppet._Insi_2f42a337-0bc5-496f-a871-7633a395ce84.png?ex=699824cc&is=6996d34c&hm=9d0779c761e7d6718c2ec1b6aefdc76cafa6bd269b3a498a434022ac7a452bfe&=&format=webp&quality=lossless&width=1180&height=1772);">
+        <div class="link-card-content">
+          <i class="fas fa-heart"></i>
+          <span>Donate</span>
+        </div>
+      </a>
+
+      <a href="https://www.facebook.com/Mr.Mudbelly/subscribe/" class="link-card" target="_blank" rel="noopener noreferrer" style="background-image: url(https://media.discordapp.net/attachments/1072268687370891417/1460742458517360782/cokelly_muppet_syd_barrett_playing_guitar_as_a_funny_muppet._In_4c7d6c1d-a53d-468f-94c5-7f535a1bdbfe.png?ex=699824ad&is=6996d32d&hm=b004c1fe3f2d48ab206d3295a922bc0b00c18cdc0f7b3ea97317533569aaf5a8&=&format=webp&quality=lossless&width=1180&height=1772);">
+        <div class="link-card-content">
+          <i class="fas fa-bell"></i>
+          <span>Subscribe</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="contact-wrapper">
+      <a href="mailto:mrmudbelly@gmail.com?subject=Hey%20Mr.Mudbelly%20-%20Contact%20/%20Collab" class="special-btn">
+        <i class="fas fa-envelope"></i> Contact Me → mrmudbelly@gmail.com
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Mr.Mudbelly — Get Your Mudbelly Today! 🎸🤘</p>
+  </footer>
+
+</body>
+</html>
