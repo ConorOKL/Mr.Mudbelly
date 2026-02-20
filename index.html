@@ -11,7 +11,8 @@
       --text: #e0e0e0;
       --accent: #ff4d82;
       --accent2: #00f0ff;
-      --bg-image: fatbaby.png;
+      --default-image: url('https://raw.githubusercontent.com/ConorOKL/Mr.Mudbelly/main/images/fatbaby.png');
+      --hover-image: url('https://raw.githubusercontent.com/ConorOKL/Mr.Mudbelly/main/images/fatbaby_rocker.png');
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -63,15 +64,15 @@
       display: inline-block;
     }
     main { flex: 1; padding: 3rem 1rem; max-width: 1400px; margin: 0 auto; width: 100%; }
-    .intro { 
-      text-align: center; 
-      max-width: 800px; 
-      margin: 0 auto 3rem; 
+    .intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
       font-size: 1.08rem;
     }
     .links-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* default: 4 columns (4x2) */
+      grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
       margin: 2rem 0;
       justify-items: center;
@@ -95,12 +96,12 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: var(--bg-image);
+      background-image: var(--default-image);
       background-size: cover;
       background-position: center;
       z-index: 0;
       transform: scale(1.25);
-      transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), background-image 0.4s;
     }
     .link-card::after {
       content: "";
@@ -138,6 +139,7 @@
     }
     .link-card:hover::before {
       transform: scale(1.45);
+      background-image: var(--hover-image); /* switches to fatbaby_rocker on hover */
     }
     .link-card:hover::after {
       opacity: 0;
@@ -194,15 +196,9 @@
     .contact-wrapper { display: flex; justify-content: center; margin: 2.5rem 0; }
     footer { background: #000; text-align: center; padding: 2rem 1rem; font-size: 0.95rem; opacity: 0.8; border-top: 1px solid #333; }
 
-    /* Media queries: stay 4x2 as long as possible, drop to 2x4 only when very narrow */
-    @media (max-width: 1100px) {
-      .links-grid { grid-template-columns: repeat(4, 1fr); } /* still 4 columns down to 1100px */
-    }
-    @media (max-width: 900px) {
-      .links-grid { grid-template-columns: repeat(2, 1fr); } /* switch to 2 columns only here */
-      .link-card { width: 160px; height: 160px; }
-    }
-    @media (max-width: 600px) {
+    @media (max-width: 1100px) { .links-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 900px) { .links-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { 
       .links-grid { gap: 1.5rem; }
       .link-card { width: 140px; height: 140px; }
       .link-card i { font-size: 2.4rem; }
@@ -211,17 +207,14 @@
   </style>
 </head>
 <body>
-
   <header>
     <h1>Mr.Mudbelly</h1>
     <div class="tagline">Music Videos • Puppet Parodies • Chaos</div>
   </header>
-
   <main>
     <div class="intro">
       <p>Welcome to the official home of Mr.Mudbelly — where your idols get puppetized. Support the madness! Contact for collabs.</p>
     </div>
-
     <div class="links-grid">
       <a href="https://walmrt.us/47r2fC7" class="link-card" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
@@ -280,17 +273,14 @@
         </div>
       </a>
     </div>
-
     <div class="contact-wrapper">
       <a href="mailto:mrmudbelly@gmail.com?subject=Hey%20Mr.Mudbelly%20-%20Contact%20/%20Collab" class="special-btn">
         <i class="fas fa-envelope"></i> Contact Me → mrmudbelly@gmail.com
       </a>
     </div>
   </main>
-
   <footer>
     <p>© Mr.Mudbelly — Get Your Mudbelly Today! 🎸🤘</p>
   </footer>
-
 </body>
 </html>
