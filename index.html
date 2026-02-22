@@ -158,32 +158,6 @@
     .link-card:nth-child(7) .color-overlay { background: linear-gradient(135deg, #ff3399, #00bfff); }
     .link-card:nth-child(8) .color-overlay { background: linear-gradient(135deg, #00bfff, #ff66cc); }
 
-    .visitor-map-wrapper {
-      text-align: center;
-      margin: 3rem 0;
-      padding: 1.5rem;
-      background: rgba(17,17,17,0.7);
-      border-radius: 12px;
-      border: 1px solid #444;
-    }
-    .visitor-map-wrapper p {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-    .visitor-map-wrapper #mapmyvisitors,
-    .visitor-map-wrapper #mmvst_map_container,
-    .visitor-map-wrapper .mmvst_map,
-    .visitor-map-wrapper iframe,
-    .visitor-map-wrapper svg,
-    .visitor-map-wrapper div[id^="mmvst"] {
-      width: 100% !important;
-      max-width: 900px;
-      height: 225px !important; /* Halved from 450px */
-      margin: 0 auto;
-      display: block;
-    }
-
     .special-btn {
       background: linear-gradient(45deg, #ff4d82, #ff80ff);
       color: white;
@@ -205,7 +179,22 @@
       box-shadow: 0 0 50px rgba(255,77,130,1), 0 0 80px rgba(255,128,255,0.7);
     }
     .contact-wrapper { display: flex; justify-content: center; margin: 2.5rem 0; }
-    footer { background: #000; text-align: center; padding: 2rem 1rem; font-size: 0.95rem; opacity: 0.8; border-top: 1px solid #333; }
+    footer { 
+      background: #000; 
+      text-align: center; 
+      padding: 2rem 1rem; 
+      font-size: 0.95rem; 
+      opacity: 0.8; 
+      border-top: 1px solid #333; 
+    }
+    .visitor-counter {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .visitor-counter span {
+      color: var(--accent);
+    }
 
     /* Media queries */
     @media (max-width: 1100px) {
@@ -227,17 +216,6 @@
       .link-card { width: 140px; height: 140px; }
       .link-card i { font-size: 2.4rem; }
       .link-card span { font-size: 1.2rem; }
-      .visitor-map-wrapper {
-        padding: 1rem;
-      }
-      .visitor-map-wrapper #mapmyvisitors,
-      .visitor-map-wrapper #mmvst_map_container,
-      .visitor-map-wrapper .mmvst_map,
-      .visitor-map-wrapper iframe,
-      .visitor-map-wrapper svg,
-      .visitor-map-wrapper div[id^="mmvst"] {
-        height: 150px !important; /* Halved from 300px on mobile */
-      }
     }
   </style>
 </head>
@@ -310,12 +288,6 @@
       </a>
     </div>
 
-    <!-- Global Visitor Map Visualizer -->
-    <div class="visitor-map-wrapper">
-      <p>Visitors from around the world 🌍 (live map)</p>
-      <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=Rjy9Ffmk63XeDW4YEqJHOt2RpqVaVwg4GsADeb0QG2A&cl=ffffff&w=a"></script>
-    </div>
-
     <div class="contact-wrapper">
       <a href="mailto:mrmudbelly@gmail.com?subject=Hey%20Mr.Mudbelly%20-%20Contact%20/%20Collab" class="special-btn">
         <i class="fas fa-envelope"></i> Contact Me → mrmudbelly@gmail.com
@@ -325,6 +297,10 @@
 
   <footer>
     <p>© Mr.Mudbelly — Get your Mudbelly on! 🎸🤘</p>
+    <div class="visitor-counter">
+      Views: <span id="counter-display">[counter loading...]</span>
+      <script type="text/javascript" src="https://counter.websiteout.com/js/9/0/1000/0"></script>
+    </div>
   </footer>
 </body>
 </html>
