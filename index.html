@@ -171,13 +171,15 @@
       font-size: 1.1rem;
       opacity: 0.9;
     }
-    .visitor-map-wrapper #mmvst_globe_container,
-    .visitor-map-wrapper .mmvst_globe,
+    .visitor-map-wrapper #mapmyvisitors,
+    .visitor-map-wrapper #mmvst_map_container,
+    .visitor-map-wrapper .mmvst_map,
     .visitor-map-wrapper iframe,
-    .visitor-map-wrapper svg {
+    .visitor-map-wrapper svg,
+    .visitor-map-wrapper div[id^="mmvst"] {
       width: 100% !important;
       max-width: 900px;
-      height: 450px !important; /* Adjust as needed for your widget's aspect ratio */
+      height: 450px !important;
       margin: 0 auto;
       display: block;
     }
@@ -228,11 +230,13 @@
       .visitor-map-wrapper {
         padding: 1rem;
       }
-      .visitor-map-wrapper #mmvst_globe_container,
-      .visitor-map-wrapper .mmvst_globe,
+      .visitor-map-wrapper #mapmyvisitors,
+      .visitor-map-wrapper #mmvst_map_container,
+      .visitor-map-wrapper .mmvst_map,
       .visitor-map-wrapper iframe,
-      .visitor-map-wrapper svg {
-        height: 300px !important; /* Smaller on mobile */
+      .visitor-map-wrapper svg,
+      .visitor-map-wrapper div[id^="mmvst"] {
+        height: 300px !important;
       }
     }
   </style>
@@ -309,7 +313,7 @@
     <!-- Global Visitor Map Visualizer -->
     <div class="visitor-map-wrapper">
       <p>Visitors from around the world 🌍 (live map)</p>
-      <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=iGsqPhcXRc0Dw_R2uJ7Ntm0HE1nN5NSE94APpJaB_ew"></script>
+      <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=Rjy9Ffmk63XeDW4YEqJHOt2RpqVaVwg4GsADeb0QG2A&cl=ffffff&w=a"></script>
     </div>
 
     <div class="contact-wrapper">
