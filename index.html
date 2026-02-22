@@ -57,7 +57,7 @@
     .links-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem; /* Closer buttons */
+      gap: 1.2rem;
       margin: 2rem 0;
       justify-items: center;
       min-height: 600px;
@@ -65,7 +65,7 @@
     .link-card {
       width: 180px;
       height: 180px;
-      background: #111; /* Fallback */
+      background: #111;
       border: 2px solid #444;
       border-radius: 50%;
       transition: all 0.4s ease;
@@ -158,6 +158,30 @@
     .link-card:nth-child(7) .color-overlay { background: linear-gradient(135deg, #ff3399, #00bfff); }
     .link-card:nth-child(8) .color-overlay { background: linear-gradient(135deg, #00bfff, #ff66cc); }
 
+    .visitor-map-wrapper {
+      text-align: center;
+      margin: 3rem 0;
+      padding: 1.5rem;
+      background: rgba(17,17,17,0.7);
+      border-radius: 12px;
+      border: 1px solid #444;
+    }
+    .visitor-map-wrapper p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .visitor-map-wrapper #mmvst_globe_container,
+    .visitor-map-wrapper .mmvst_globe,
+    .visitor-map-wrapper iframe,
+    .visitor-map-wrapper svg {
+      width: 100% !important;
+      max-width: 900px;
+      height: 450px !important; /* Adjust as needed for your widget's aspect ratio */
+      margin: 0 auto;
+      display: block;
+    }
+
     .special-btn {
       background: linear-gradient(45deg, #ff4d82, #ff80ff);
       color: white;
@@ -201,6 +225,15 @@
       .link-card { width: 140px; height: 140px; }
       .link-card i { font-size: 2.4rem; }
       .link-card span { font-size: 1.2rem; }
+      .visitor-map-wrapper {
+        padding: 1rem;
+      }
+      .visitor-map-wrapper #mmvst_globe_container,
+      .visitor-map-wrapper .mmvst_globe,
+      .visitor-map-wrapper iframe,
+      .visitor-map-wrapper svg {
+        height: 300px !important; /* Smaller on mobile */
+      }
     }
   </style>
 </head>
@@ -271,6 +304,12 @@
           <span>Gorenaments</span>
         </div>
       </a>
+    </div>
+
+    <!-- Global Visitor Map Visualizer -->
+    <div class="visitor-map-wrapper">
+      <p>Visitors from around the world 🌍 (live map)</p>
+      <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=iGsqPhcXRc0Dw_R2uJ7Ntm0HE1nN5NSE94APpJaB_ew"></script>
     </div>
 
     <div class="contact-wrapper">
