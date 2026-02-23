@@ -11,8 +11,8 @@
       --text: #e0e0e0;
       --accent: #ff4d82;
       --accent2: #00f0ff;
-      --bg-default: url('https://i.imgur.com/ZvKyQJq.png');      /* Fat baby default */
-      --bg-hover: url('https://i.imgur.com/FzEY8KG.png');        /* Fat baby rocker on hover */
+      --bg-facebook-default: url('https://i.imgur.com/VTphZf3.png');  /* Facebook default */
+      --bg-facebook-hover: url('https://i.imgur.com/Venl41O.png');    /* Facebook hover */
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -81,12 +81,11 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: var(--bg-default);
       background-size: cover;
       background-position: center center;
       z-index: 0;
-      transform: scale(1.25);
-      transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), background-image 0.4s ease;
+      transform: scale(1.30);
+      transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
     .link-card::after {
       content: "";
@@ -123,9 +122,7 @@
       box-shadow: 0 0 40px rgba(255,77,130,0.7);
     }
     .link-card:hover::before {
-      transform: scale(1.35);
-      background-image: var(--bg-hover);
-      background-position: center center;
+      transform: scale(1.42);
     }
     .link-card:hover::after {
       opacity: 0;
@@ -148,6 +145,22 @@
       text-shadow: 0 0 10px rgba(0,0,0,0.9);
       transition: color 0.3s, text-shadow 0.3s;
     }
+
+    /* Individual card backgrounds */
+    .card-shop::before     { background-image: url('https://i.imgur.com/L25Gr35.png'); }
+    .card-cameo::before    { background-image: url('https://i.imgur.com/xaPIj4u.png'); }
+    .card-facebook::before { background-image: var(--bg-facebook-default); }
+    .card-instagram::before{ background-image: url('https://i.imgur.com/v4ZD6bv.png'); }
+    .card-youtube::before  { background-image: url('https://i.imgur.com/4Cytmfw.png'); }
+    .card-tiktok::before   { background-image: url('https://i.imgur.com/OQwil21.png'); }
+    .card-donate::before   { background-image: url('https://i.imgur.com/A8WLDQ5.png'); } /* Updated Donate image */
+    .card-puppets::before  { background-image: url('https://i.imgur.com/kMwglme.png'); }
+
+    /* Facebook hover only */
+    .card-facebook:hover::before {
+      background-image: var(--bg-facebook-hover);
+    }
+
     /* Neon overlays */
     .link-card:nth-child(1) .color-overlay { background: linear-gradient(135deg, #00d4ff, #ff4d82); }
     .link-card:nth-child(2) .color-overlay { background: linear-gradient(135deg, #ff4d82, #00eaff); }
@@ -230,60 +243,60 @@
     </div>
 
     <div class="links-grid">
-      <a href="https://walmrt.us/47r2fC7" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://walmrt.us/47r2fC7" class="link-card card-shop" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fas fa-shopping-cart"></i>
           <span>Shop</span>
         </div>
       </a>
-      <a href="https://www.cameo.com/mr.mudbelly" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.cameo.com/mr.mudbelly" class="link-card card-cameo" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fas fa-video"></i>
           <span>Cameo</span>
         </div>
       </a>
-      <a href="https://www.facebook.com/people/Mrmudbelly-Connected-Page/61573566361994" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.facebook.com/people/Mrmudbelly-Connected-Page/61573566361994" class="link-card card-facebook" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fab fa-facebook"></i>
           <span>Facebook</span>
         </div>
       </a>
-      <a href="https://www.instagram.com/mr.mudbelly" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/mr.mudbelly" class="link-card card-instagram" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fab fa-instagram"></i>
           <span>Instagram</span>
         </div>
       </a>
-      <a href="https://www.youtube.com/@mr.mudbelly" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.youtube.com/@mr.mudbelly" class="link-card card-youtube" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fab fa-youtube"></i>
           <span>YouTube</span>
         </div>
       </a>
-      <a href="https://www.tiktok.com/@mr.mudbelly" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.tiktok.com/@mr.mudbelly" class="link-card card-tiktok" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fab fa-tiktok"></i>
           <span>TikTok</span>
         </div>
       </a>
-      <a href="https://www.paypal.biz/mrmudbelly" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.paypal.biz/mrmudbelly" class="link-card card-donate" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fas fa-heart"></i>
           <span>Donate</span>
         </div>
       </a>
-      <a href="https://gorenamentstore.com/shop/?utm_source=conor&utm_medium=referral-&utm_campaign=conortraffic" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.ebay.com/sch/i.html?item=389660268061&rt=nc&_trksid=p4429486.m3561.l170197&_ssn=mr.mudbelly" class="link-card card-puppets" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fas fa-bell"></i>
-          <span>Gorenaments</span>
+          <span>Puppets</span>
         </div>
       </a>
     </div>
