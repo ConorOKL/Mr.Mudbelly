@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mr.Mudbelly.com - Puppet Music Videos & Parodies</title>
+  <!-- Preload hover images so the first hover doesn't flash -->
+  <link rel="preload" as="image" href="img/instagram_hover.png" />
+  <link rel="preload" as="image" href="img/shop_hover.png" />
+  <link rel="preload" as="image" href="img/cameo_hover.png" />
+  <link rel="preload" as="image" href="img/youtube_hover.png" />
+  <link rel="preload" as="image" href="img/tiktok_hover.png" />
+  <link rel="preload" as="image" href="img/donate_hover.png" />
+  <link rel="preload" as="image" href="img/music_hover.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
@@ -13,6 +21,8 @@
       --accent2: #00f0ff;
       --bg-facebook-default: url('https://i.imgur.com/VTphZf3.png');  /* Facebook default */
       --bg-facebook-hover: url('https://i.imgur.com/Venl41O.png');    /* Facebook hover */
+      --bg-instagram-default: url('https://i.imgur.com/v4ZD6bv.png'); /* Instagram default */
+      --bg-instagram-hover: url('img/instagram_hover.png');           /* Instagram hover (cross-eyed) */
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -150,7 +160,7 @@
     .card-shop::before     { background-image: url('https://i.imgur.com/L25Gr35.png'); }
     .card-cameo::before    { background-image: url('https://i.imgur.com/xaPIj4u.png'); }
     .card-facebook::before { background-image: var(--bg-facebook-default); }
-    .card-instagram::before{ background-image: url('https://i.imgur.com/v4ZD6bv.png'); }
+    .card-instagram::before{ background-image: var(--bg-instagram-default); }
     .card-youtube::before  { background-image: url('https://i.imgur.com/4Cytmfw.png'); }
     .card-tiktok::before   { background-image: url('https://i.imgur.com/OQwil21.png'); }
     .card-donate::before   { background-image: url('https://i.imgur.com/A8WLDQ5.png'); }
@@ -160,6 +170,19 @@
     .card-facebook:hover::before {
       background-image: var(--bg-facebook-hover);
     }
+
+    /* Instagram hover */
+    .card-instagram:hover::before {
+      background-image: var(--bg-instagram-hover);
+    }
+
+    /* Cross-eyed hovers for the other buttons */
+    .card-shop:hover::before    { background-image: url('img/shop_hover.png'); }
+    .card-cameo:hover::before   { background-image: url('img/cameo_hover.png'); }
+    .card-youtube:hover::before { background-image: url('img/youtube_hover.png'); }
+    .card-tiktok:hover::before  { background-image: url('img/tiktok_hover.png'); }
+    .card-donate:hover::before  { background-image: url('img/donate_hover.png'); }
+    .card-puppets:hover::before { background-image: url('img/music_hover.png'); }
 
     /* Neon overlays */
     .link-card:nth-child(1) .color-overlay { background: linear-gradient(135deg, #00d4ff, #ff4d82); }
