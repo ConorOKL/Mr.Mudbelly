@@ -70,9 +70,9 @@
     header::before { /* 80s pattern texture */
       content: "";
       position: absolute; inset: 0;
-      background: url('img/pattern-tile.webp') center / 420px repeat;
-      opacity: 0.07;
-      mix-blend-mode: screen;
+      background: url('img/puppet-pattern.webp') center top / 600px repeat;
+      opacity: 0.13;
+      filter: saturate(.8);
       pointer-events: none;
     }
     .horizon { /* synthwave grid floor */
@@ -122,18 +122,31 @@
     }
     .tagline {
       font-family: var(--display);
-      font-size: clamp(1rem, 2.4vw, 1.5rem);
+      font-size: clamp(1.15rem, 3vw, 1.9rem);
+      line-height: 1.15;
       letter-spacing: .04em;
-      margin-top: 1.4rem;
-      background: linear-gradient(90deg, var(--yellow), var(--accent) 50%, var(--accent2));
+      text-transform: uppercase;
+      margin: 1.3rem auto 0;
+      width: fit-content;
+      max-width: 100%;
+      text-wrap: balance;
+      background: linear-gradient(90deg, #ffe14d 0%, #ff9f1c 22%, #ff4d82 45%, #d77bff 66%, #00f0ff 86%, #5dff9e 100%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(2px 2px 0 #1a0630) drop-shadow(0 0 14px rgba(255,77,130,.35));
     }
+    .about { padding: 0; }
+    #contact { padding-top: 4rem; }
     .intro {
       text-align: center;
-      max-width: 640px;
-      margin: 1rem auto 0;
-      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.1rem;
       color: var(--muted);
+      padding: 1.6rem 1.8rem;
+      border-left: 3px solid var(--accent);
+      border-right: 3px solid var(--accent2);
+      border-radius: 18px;
+      background: rgba(255,255,255,.03);
     }
     .hero-ctas { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin-top: 1.8rem; }
     .chip {
@@ -307,8 +320,8 @@
     /* ---------- Merch carousel ---------- */
     #merch {
       background:
-        linear-gradient(180deg, var(--bg) 0%, rgba(7,6,13,.9) 16%, rgba(7,6,13,.9) 84%, var(--bg) 100%),
-        url('img/pattern-tile.webp') center / 520px repeat;
+        linear-gradient(180deg, var(--bg) 0%, rgba(7,6,13,.88) 14%, rgba(7,6,13,.88) 86%, var(--bg) 100%),
+        url('img/puppet-pattern.webp') center / 720px repeat;
     }
     .carousel { position: relative; max-width: 980px; margin: 0 auto; }
     .car-track {
@@ -479,7 +492,9 @@
       header { padding: 2.8rem 1rem 0; }
       .logo-img { width: 96%; }
       .kicker { font-size: .68rem; letter-spacing: .16em; margin-bottom: 1.2rem; }
-      .intro { font-size: .98rem; }
+      .intro { font-size: 1rem; padding: 1.3rem 1.2rem; }
+      #contact { padding-top: 3rem; }
+      .eyebrow { letter-spacing: .14em; font-size: .72rem; }
       .horizon { height: 90px; margin-top: 2rem; }
       h2 { font-size: 1.65rem; }
       .chip { padding: .65rem 1.05rem; font-size: .88rem; }
@@ -500,12 +515,9 @@
     <div class="hero-inner">
       <div class="kicker"><span class="dot"></span> Puppet music videos &amp; parodies</div>
       <img src="img/logo-1400.webp" srcset="img/logo-700.webp 700w, img/logo-1400.webp 1400w" sizes="(max-width: 900px) 96vw, 860px" width="1400" height="290" alt="Mr.Mudbelly Logo" class="logo-img">
-      <p class="tagline">Rock &amp; metal, puppet style</p>
-      <div class="intro">
-        <p>Welcome to Mr. Mudbelly's music videos and puppet parodies. Support the madness! Subscribe to request videos! Shop the affiliate store. Donate! Contact for collabs, commissions, and business inquiries.</p>
-      </div>
+      <p class="tagline">Rock &amp; Metal Puppet Parody</p>
       <div class="hero-ctas">
-        <a class="chip hot" href="#merch"><i class="fas fa-shirt"></i> New merch</a>
+        <a class="chip hot" href="#merch"><i class="fas fa-shirt"></i> Shop the merch</a>
         <a class="chip" href="#links"><i class="fas fa-bolt"></i> Watch &amp; follow</a>
         <a class="chip" href="#contact"><i class="fas fa-envelope"></i> Contact</a>
       </div>
@@ -515,6 +527,75 @@
   <div class="checker" aria-hidden="true"></div>
 
   <main>
+    <section id="merch" aria-labelledby="merch-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Official merch</div>
+          <h2 id="merch-title">Wear the Mudbelly</h2>
+          <p class="sub">Swipe or tap the arrows to flip through the shirts.</p>
+        </div>
+
+        <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Mr. Mudbelly merch">
+          <button class="car-btn car-prev" type="button" aria-label="Previous shirt"><i class="fas fa-chevron-left"></i></button>
+          <div class="car-track" tabindex="0">
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="1 of 5">
+              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/banner-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Banner Tee, black tee with the colorful Mr.Mudbelly logo" loading="eager"></a>
+              <div class="slide-info">
+                <div class="slide-num">01 / 05</div>
+                <h3 class="slide-name">Mr. Mudbelly Banner Tee</h3>
+                <div class="slide-price">$30</div>
+                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </article>
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
+              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-character-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/character-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Character Tee, black tee with the blue puppet in a circle" loading="lazy"></a>
+              <div class="slide-info">
+                <div class="slide-num">02 / 05</div>
+                <h3 class="slide-name">Mr. Mudbelly Character Tee</h3>
+                <div class="slide-price">$30</div>
+                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-character-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </article>
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
+              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-hoodie" target="_blank" rel="noopener noreferrer"><img src="img/shop/banner-hoodie.webp" width="800" height="1000" alt="Mr. Mudbelly Banner Hoodie, black hoodie with the colorful logo" loading="lazy"></a>
+              <div class="slide-info">
+                <div class="slide-num">03 / 05</div>
+                <h3 class="slide-name">Mr. Mudbelly Banner Hoodie</h3>
+                <div class="slide-price">$50</div>
+                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-hoodie" target="_blank" rel="noopener noreferrer">Get this hoodie <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </article>
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
+              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-skull-band-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/skull-band-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Skull Band Tee, black tee with white sketch skull band art" loading="lazy"></a>
+              <div class="slide-info">
+                <div class="slide-num">04 / 05</div>
+                <h3 class="slide-name">Mr. Mudbelly Skull Band Tee</h3>
+                <div class="slide-price">$30</div>
+                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-skull-band-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </article>
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
+              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-racing-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/racing-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Racing Tee, 90s racing all-over print" loading="lazy"></a>
+              <div class="slide-info">
+                <div class="slide-num">05 / 05</div>
+                <h3 class="slide-name">Mr. Mudbelly Racing Tee</h3>
+                <div class="slide-price">$40</div>
+                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-racing-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <button class="car-btn car-next" type="button" aria-label="Next shirt"><i class="fas fa-chevron-right"></i></button>
+          <div class="car-dots" role="group" aria-label="Choose a shirt"></div>
+        </div>
+
+        <div class="shop-all-wrap">
+          <a class="shop-all" href="https://mr-mudbelly-shop.fourthwall.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-bag-shopping"></i> Shop all merch</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="checker" aria-hidden="true"></div>
+
     <section id="links">
       <div class="wrap">
         <div class="section-head">
@@ -584,71 +665,10 @@
       </div>
     </section>
 
-    <div class="checker" aria-hidden="true"></div>
-
-    <section id="merch" aria-labelledby="merch-title">
+    <section id="about" class="about">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Official merch</div>
-          <h2 id="merch-title">Wear the Mudbelly</h2>
-          <p class="sub">Swipe or tap the arrows to flip through the shirts.</p>
-        </div>
-
-        <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Mr. Mudbelly merch">
-          <button class="car-btn car-prev" type="button" aria-label="Previous shirt"><i class="fas fa-chevron-left"></i></button>
-          <div class="car-track" tabindex="0">
-            <article class="slide" role="group" aria-roledescription="slide" aria-label="1 of 5">
-              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/banner-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Banner Tee, black tee with the colorful Mr.Mudbelly logo" loading="eager"></a>
-              <div class="slide-info">
-                <div class="slide-num">01 / 05</div>
-                <h3 class="slide-name">Mr. Mudbelly Banner Tee</h3>
-                <div class="slide-price">$30</div>
-                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
-              </div>
-            </article>
-            <article class="slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
-              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-character-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/character-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Character Tee, black tee with the blue puppet in a circle" loading="lazy"></a>
-              <div class="slide-info">
-                <div class="slide-num">02 / 05</div>
-                <h3 class="slide-name">Mr. Mudbelly Character Tee</h3>
-                <div class="slide-price">$30</div>
-                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-character-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
-              </div>
-            </article>
-            <article class="slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
-              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-hoodie" target="_blank" rel="noopener noreferrer"><img src="img/shop/banner-hoodie.webp" width="800" height="1000" alt="Mr. Mudbelly Banner Hoodie, black hoodie with the colorful logo" loading="lazy"></a>
-              <div class="slide-info">
-                <div class="slide-num">03 / 05</div>
-                <h3 class="slide-name">Mr. Mudbelly Banner Hoodie</h3>
-                <div class="slide-price">$50</div>
-                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-hoodie" target="_blank" rel="noopener noreferrer">Get this hoodie <i class="fas fa-arrow-right"></i></a>
-              </div>
-            </article>
-            <article class="slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
-              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-skull-band-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/skull-band-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Skull Band Tee, black tee with white sketch skull band art" loading="lazy"></a>
-              <div class="slide-info">
-                <div class="slide-num">04 / 05</div>
-                <h3 class="slide-name">Mr. Mudbelly Skull Band Tee</h3>
-                <div class="slide-price">$30</div>
-                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-skull-band-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
-              </div>
-            </article>
-            <article class="slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
-              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-racing-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/racing-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Racing Tee, 90s racing all-over print" loading="lazy"></a>
-              <div class="slide-info">
-                <div class="slide-num">05 / 05</div>
-                <h3 class="slide-name">Mr. Mudbelly Racing Tee</h3>
-                <div class="slide-price">$40</div>
-                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-racing-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
-              </div>
-            </article>
-          </div>
-          <button class="car-btn car-next" type="button" aria-label="Next shirt"><i class="fas fa-chevron-right"></i></button>
-          <div class="car-dots" role="group" aria-label="Choose a shirt"></div>
-        </div>
-
-        <div class="shop-all-wrap">
-          <a class="shop-all" href="https://mr-mudbelly-shop.fourthwall.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-bag-shopping"></i> Shop all merch</a>
+        <div class="intro">
+          <p>Welcome to Mr. Mudbelly's music videos and puppet parodies. Support the madness! Subscribe to request videos! Shop the affiliate store. Donate! Contact for collabs, commissions, and business inquiries.</p>
         </div>
       </div>
     </section>
