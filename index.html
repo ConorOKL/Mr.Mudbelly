@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mr.Mudbelly.com - Puppet Music Videos & Parodies</title>
+  <meta name="description" content="Mr. Mudbelly: animated puppet music videos and rock &amp; metal parodies. Watch, follow, shop the merch, and get in touch for collabs." />
+  <meta name="theme-color" content="#07060d" />
+  <meta property="og:title" content="Mr.Mudbelly.com - Puppet Music Videos & Parodies" />
+  <meta property="og:description" content="Animated puppet music videos and rock &amp; metal parodies." />
+  <meta property="og:image" content="https://mrmudbelly.com/img/logo-1400.png" />
+  <meta property="og:url" content="https://mrmudbelly.com/" />
   <!-- Preload hover images so the first hover doesn't flash -->
   <link rel="preload" as="image" href="img/facebook_hover.png" />
   <link rel="preload" as="image" href="img/instagram_hover.png" />
@@ -14,71 +20,169 @@
   <link rel="preload" as="image" href="img/donate_hover.png" />
   <link rel="preload" as="image" href="img/music.png" />
   <link rel="preload" as="image" href="img/music_hover.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@400;500;700&display=swap" />
   <style>
     :root {
-      --bg: #0f0f0f;
-      --text: #e0e0e0;
+      --bg: #07060d;
+      --bg2: #0e0c1a;
+      --text: #ece8f5;
+      --muted: #a7a1bb;
       --accent: #ff4d82;
       --accent2: #00f0ff;
+      --yellow: #ffd60a;
+      --purple: #9d4dff;
+      --display: 'Bungee', 'Impact', sans-serif;
       --bg-facebook-default: url('https://i.imgur.com/VTphZf3.png');  /* Facebook default */
       --bg-facebook-hover: url('img/facebook_hover.png');             /* Facebook hover (cross-eyed) */
       --bg-instagram-default: url('https://i.imgur.com/v4ZD6bv.png'); /* Instagram default */
       --bg-instagram-hover: url('img/instagram_hover.png');           /* Instagram hover (cross-eyed) */
     }
     * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Space Grotesk', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
     }
+    img { max-width: 100%; }
+    a { color: inherit; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; width: 100%; }
+
+    /* ---------- Hero ---------- */
     header {
-      background: linear-gradient(to bottom, #000, #111);
-      padding: 2.5rem 1rem 1.5rem;
-      text-align: center;
       position: relative;
       overflow: hidden;
+      text-align: center;
+      padding: 4.5rem 1rem 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 38%, rgba(255,77,130,0.28), transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 10%, rgba(0,240,255,0.16), transparent 70%),
+        linear-gradient(180deg, #05040a 0%, #120a24 62%, #1d0b2e 100%);
     }
-    header::before {
+    header::before { /* 80s pattern texture */
       content: "";
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,77,130,0.18) 0%, transparent 70%);
-      animation: pulse 12s infinite alternate;
+      position: absolute; inset: 0;
+      background: url('img/pattern-tile.webp') center / 420px repeat;
+      opacity: 0.07;
+      mix-blend-mode: screen;
+      pointer-events: none;
     }
-    @keyframes pulse { 0% { transform: scale(1); opacity: 0.4; } 100% { transform: scale(1.3); opacity: 0.1; } }
+    .horizon { /* synthwave grid floor */
+      position: relative;
+      height: 150px;
+      margin: 2.5rem -1rem 0;
+      perspective: 260px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .horizon::before {
+      content: "";
+      position: absolute; left: -50%; right: -50%; top: 0; height: 300px;
+      background-image:
+        linear-gradient(rgba(255,77,130,0.55) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(0,240,255,0.45) 2px, transparent 2px);
+      background-size: 60px 40px;
+      transform: rotateX(62deg);
+      transform-origin: top center;
+      animation: grid-move 3s linear infinite;
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 35%);
+              mask-image: linear-gradient(180deg, transparent 0%, #000 35%);
+    }
+    .horizon::after {
+      content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--accent2), var(--accent), transparent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+    @keyframes grid-move { to { background-position: 0 40px, 0 0; } }
+    .hero-inner { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: .55rem;
+      font-size: .78rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--accent2);
+      padding: .4rem .9rem; border: 1px solid rgba(0,240,255,.35); border-radius: 999px;
+      background: rgba(0,240,255,.06);
+      margin-bottom: 1.6rem;
+    }
+    .kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
     .logo-img {
-      max-width: 80%;
+      width: min(860px, 92%);
       height: auto;
       display: block;
       margin: 0 auto;
       object-fit: contain;
+      filter: drop-shadow(0 6px 0 rgba(0,0,0,.55)) drop-shadow(0 0 28px rgba(255,77,130,.35));
     }
-    main { flex: 1; padding: 3rem 1rem; max-width: 1400px; margin: 0 auto; width: 100%; }
+    .tagline {
+      font-family: var(--display);
+      font-size: clamp(1rem, 2.4vw, 1.5rem);
+      letter-spacing: .04em;
+      margin-top: 1.4rem;
+      background: linear-gradient(90deg, var(--yellow), var(--accent) 50%, var(--accent2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
     .intro {
       text-align: center;
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      font-size: 1.08rem;
+      max-width: 640px;
+      margin: 1rem auto 0;
+      font-size: 1.05rem;
+      color: var(--muted);
     }
+    .hero-ctas { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; margin-top: 1.8rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.3rem; border-radius: 999px;
+      font-weight: 700; text-decoration: none; font-size: .95rem;
+      border: 1.5px solid rgba(255,255,255,.18); background: rgba(255,255,255,.05);
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+    .chip:hover { transform: translateY(-2px); border-color: var(--accent2); background: rgba(0,240,255,.1); }
+    .chip.hot { background: linear-gradient(90deg, var(--accent), #ff80ff); border-color: transparent; color: #fff; }
+
+    /* racing checker stripe */
+    .checker {
+      height: 22px;
+      background: repeating-conic-gradient(#f4f1ea 0 25%, #0b0b0b 0 50%) 0 0 / 22px 22px;
+      border-top: 3px solid var(--accent);
+      border-bottom: 3px solid var(--accent2);
+    }
+
+    main { flex: 1; width: 100%; }
+    section { padding: 5rem 0; position: relative; }
+    .section-head { text-align: center; margin-bottom: 2.6rem; }
+    .eyebrow { text-wrap: balance; font-size: .78rem; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--accent); }
+    h2 {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(1.8rem, 4.4vw, 2.8rem);
+      line-height: 1.1;
+      margin-top: .4rem;
+      text-wrap: balance;
+      text-shadow: 3px 3px 0 var(--purple), 6px 6px 0 rgba(0,240,255,.35);
+    }
+    .sub { color: var(--muted); margin-top: .7rem; }
+
+    /* ---------- Link buttons (cross-eyed hover mechanism preserved) ---------- */
     .links-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem;
-      margin: 2rem 0;
+      gap: 2.4rem 1.2rem;
+      margin: 0 auto;
+      max-width: 1000px;
       justify-items: center;
-      min-height: 600px;
     }
     .link-card {
       width: 180px;
       height: 180px;
       background: #111;
-      border: 2px solid #444;
+      border: 3px solid rgba(255,255,255,.14);
       border-radius: 50%;
       transition: all 0.4s ease;
       text-decoration: none;
@@ -88,6 +192,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 0 0 6px rgba(157,77,255,.12), 0 14px 30px rgba(0,0,0,.55);
     }
     .link-card::before {
       content: "";
@@ -103,7 +208,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.26);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%);
       z-index: 1;
       transition: opacity 0.4s;
     }
@@ -111,7 +216,7 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      opacity: 0.55;
+      opacity: 0.45;
       mix-blend-mode: overlay;
       transition: opacity 0.3s;
     }
@@ -121,17 +226,17 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       gap: 0.8rem;
       width: 100%;
       height: 100%;
-      padding: 1rem;
+      padding: 1rem 1rem 1.15rem;
       text-align: center;
     }
     .link-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-8px) rotate(-3deg);
       border-color: var(--accent);
-      box-shadow: 0 0 40px rgba(255,77,130,0.7);
+      box-shadow: 0 0 0 6px rgba(0,240,255,.25), 0 0 40px rgba(255,77,130,0.75);
     }
     .link-card:hover::before {
       transform: scale(1.42);
@@ -144,18 +249,21 @@
     }
     .link-card:hover span {
       color: #000000;
-      text-shadow: 0 0 15px rgba(255,255,255,0.9);
+      background: var(--yellow);
+      text-shadow: none;
     }
-    .link-card i {
-      font-size: 2.8rem;
-      color: var(--accent2);
-      text-shadow: 0 0 12px rgba(0,240,255,0.7);
-    }
+    .link-card i { display: none; } /* faces carry the button; icons kept in markup */
     .link-card span {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-family: var(--display);
+      font-size: 1rem;
+      letter-spacing: .03em;
+      line-height: 1;
+      padding: .38rem .7rem .32rem;
+      border-radius: 999px;
+      background: rgba(7,6,13,.78);
+      border: 1px solid rgba(255,255,255,.18);
       text-shadow: 0 0 10px rgba(0,0,0,0.9);
-      transition: color 0.3s, text-shadow 0.3s;
+      transition: color 0.3s, background 0.3s, text-shadow 0.3s;
     }
 
     /* Individual card backgrounds */
@@ -196,12 +304,115 @@
     .link-card:nth-child(7) .color-overlay { background: linear-gradient(135deg, #ff3399, #00bfff); }
     .link-card:nth-child(8) .color-overlay { background: linear-gradient(135deg, #00bfff, #ff66cc); }
 
+    /* ---------- Merch carousel ---------- */
+    #merch {
+      background:
+        linear-gradient(180deg, var(--bg) 0%, rgba(7,6,13,.9) 16%, rgba(7,6,13,.9) 84%, var(--bg) 100%),
+        url('img/pattern-tile.webp') center / 520px repeat;
+    }
+    .carousel { position: relative; max-width: 980px; margin: 0 auto; }
+    .car-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      border-radius: 28px;
+      outline: none;
+    }
+    .car-track::-webkit-scrollbar { display: none; }
+    .slide {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+      padding: 2.4rem 3rem;
+      background:
+        radial-gradient(circle at 30% 45%, rgba(255,77,130,.38), transparent 55%),
+        radial-gradient(circle at 70% 80%, rgba(0,240,255,.22), transparent 55%),
+        linear-gradient(135deg, #2a1745, #160d29);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 28px;
+    }
+    .slide-img { display: block; aspect-ratio: 4 / 5; }
+    .slide-img img {
+      width: 100%; height: 100%; object-fit: contain; display: block;
+      filter: drop-shadow(0 22px 26px rgba(0,0,0,.6));
+      transition: transform .4s ease;
+    }
+    .slide-img:hover img { transform: scale(1.03) rotate(-1deg); }
+    .slide-info { text-align: left; }
+    .slide-num { font-family: var(--display); font-size: .85rem; color: var(--accent2); letter-spacing: .1em; }
+    .slide-name { text-wrap: balance; font-family: var(--display); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.12; margin: .5rem 0 .7rem; }
+    .slide-price {
+      display: inline-block; font-family: var(--display); font-size: 1.35rem;
+      color: #0b0b0b; background: var(--yellow);
+      padding: .15rem .7rem; border-radius: 8px; transform: rotate(-2deg);
+      box-shadow: 3px 3px 0 var(--accent);
+    }
+    .buy {
+      display: flex; width: fit-content; align-items: center; gap: .55rem; margin-top: 1.6rem;
+      padding: .9rem 1.5rem; border-radius: 999px; text-decoration: none; font-weight: 700;
+      background: #fff; color: #0b0b0b; transition: transform .2s, box-shadow .2s;
+    }
+    .buy:hover { transform: translateY(-2px); box-shadow: 0 0 26px rgba(0,240,255,.6); }
+    .car-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.25); background: rgba(7,6,13,.75);
+      color: #fff; font-size: 1.15rem; cursor: pointer; z-index: 2;
+      display: grid; place-items: center;
+      backdrop-filter: blur(6px);
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .car-btn:hover { background: var(--accent); border-color: var(--accent); }
+    .car-btn:focus-visible, .car-dot:focus-visible, .car-track:focus-visible { outline: 3px solid var(--accent2); outline-offset: 3px; }
+    .car-prev { left: -26px; }
+    .car-next { right: -26px; }
+    .car-dots { display: flex; justify-content: center; gap: .6rem; margin-top: 1.4rem; }
+    .car-dot {
+      width: 12px; height: 12px; border-radius: 999px; border: 0; cursor: pointer; padding: 0;
+      background: rgba(255,255,255,.28); transition: width .3s, background .3s;
+    }
+    .car-dot[aria-current="true"] { width: 34px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+    .shop-all-wrap { text-align: center; margin-top: 2.2rem; }
+    .shop-all {
+      display: inline-flex; align-items: center; gap: .6rem; text-decoration: none;
+      font-family: var(--display); font-size: 1.05rem; letter-spacing: .03em;
+      padding: .95rem 1.8rem; border-radius: 999px;
+      border: 2px solid var(--accent2); color: var(--accent2);
+      box-shadow: 0 0 22px rgba(0,240,255,.25), inset 0 0 18px rgba(0,240,255,.12);
+      transition: background .2s, color .2s;
+    }
+    .shop-all:hover { background: var(--accent2); color: #07060d; }
+
+    /* ---------- Contact ---------- */
+    #contact { text-align: center; }
+    .contact-card {
+      max-width: 860px; margin: 0 auto; padding: 3.2rem 1.5rem;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,77,130,.22), transparent 60%),
+        var(--bg2);
+      border: 1px solid rgba(255,255,255,.08);
+      position: relative; overflow: hidden;
+    }
+    .contact-pfp {
+      width: 112px; height: 112px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 1.2rem;
+      border: 3px solid var(--accent2);
+      box-shadow: 0 0 0 6px rgba(255,77,130,.35), 0 0 30px rgba(0,240,255,.4);
+    }
     .special-btn {
       background: linear-gradient(45deg, #ff4d82, #ff80ff);
       color: white;
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       font-weight: bold;
-      padding: 1.2rem 2.5rem;
+      padding: 1.1rem 2.2rem;
       border: none;
       border-radius: 50px;
       cursor: pointer;
@@ -209,63 +420,108 @@
       text-decoration: none;
       margin: 1rem auto;
       width: fit-content;
+      max-width: 100%;
+      overflow-wrap: anywhere;
       transition: all 0.3s;
       box-shadow: 0 0 30px rgba(255,77,130,0.7), 0 0 60px rgba(255,128,255,0.4);
     }
     .special-btn:hover {
-      transform: scale(1.1);
+      transform: scale(1.06);
       box-shadow: 0 0 50px rgba(255,77,130,1), 0 0 80px rgba(255,128,255,0.7);
     }
-    .contact-wrapper { display: flex; justify-content: center; margin: 2.5rem 0; }
-    footer { 
-      background: #000; 
-      text-align: center; 
-      padding: 2rem 1rem; 
-      font-size: 0.95rem; 
-      opacity: 0.8; 
-      border-top: 1px solid #333; 
+    .contact-wrapper { display: flex; justify-content: center; margin: 1.6rem 0 0; }
+
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 2.2rem 1rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      border-top: 1px solid #1f1b2e;
     }
     .visitor-counter {
       margin-top: 0.5rem;
-      font-size: 1rem;
-      opacity: 0.9;
+      font-size: .9rem;
+      opacity: 0.85;
     }
     .visitor-counter span {
       color: var(--accent);
+    }
+    .visitor-counter img { vertical-align: middle; margin-left: .3rem; }
+    /* tone down the third-party counter's injected markup */
+    .visitor-counter h1, .visitor-counter h2, .visitor-counter h3, .visitor-counter h4 { font-size: .75rem; font-weight: 500; margin-top: .4rem; opacity: .55; text-shadow: none; font-family: inherit; }
+    .visitor-counter a { color: var(--muted); opacity: .55; font-size: .75rem; }
+    .visitor-counter p, .visitor-counter div { font-size: .75rem; opacity: .7; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .horizon::before { animation: none; }
+      html, .car-track { scroll-behavior: auto; }
     }
 
     /* Media queries */
     @media (max-width: 1100px) {
       .links-grid { grid-template-columns: repeat(4, 1fr); }
+      .car-prev { left: 10px; } .car-next { right: 10px; }
     }
     @media (max-width: 900px) {
-      .links-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 1.2rem;
+      .links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.6rem 1rem;
       }
       .link-card { width: 160px; height: 160px; }
+      .slide { grid-template-columns: 1fr; gap: 1rem; padding: 1.6rem 1.4rem 2rem; text-align: center; }
+      .slide-img { width: min(100%, 340px); margin: 0 auto; }
+      .slide-info { text-align: center; }
+      .buy { margin: 1.2rem auto 0; }
+      .car-btn { top: 38%; width: 44px; height: 44px; }
     }
     @media (max-width: 600px) {
-      header { padding: 2rem 1rem 1rem; }
-      .logo-img { max-width: 90%; }
-      .links-grid { 
-        gap: 1rem;
-      }
-      .link-card { width: 140px; height: 140px; }
-      .link-card i { font-size: 2.4rem; }
-      .link-card span { font-size: 1.2rem; }
+      header { padding: 2.8rem 1rem 0; }
+      .logo-img { width: 96%; }
+      .kicker { font-size: .68rem; letter-spacing: .16em; margin-bottom: 1.2rem; }
+      .intro { font-size: .98rem; }
+      .horizon { height: 90px; margin-top: 2rem; }
+      h2 { font-size: 1.65rem; }
+      .chip { padding: .65rem 1.05rem; font-size: .88rem; }
+      .hero-ctas { gap: .55rem; }
+      section { padding: 3.6rem 0; }
+      .section-head { margin-bottom: 2rem; }
+      .links-grid { gap: 1.4rem .8rem; }
+      .link-card { width: 148px; height: 148px; }
+      .link-card span { font-size: .85rem; }
+      .car-prev { left: 4px; } .car-next { right: 4px; }
+      .special-btn { font-size: 1rem; padding: 1rem 1.3rem; }
+      .contact-card { padding: 2.6rem 1.1rem; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://i.imgur.com/sqhj0H3.png" alt="Mr.Mudbelly Logo" class="logo-img">
+    <div class="hero-inner">
+      <div class="kicker"><span class="dot"></span> Puppet music videos &amp; parodies</div>
+      <img src="img/logo-1400.webp" srcset="img/logo-700.webp 700w, img/logo-1400.webp 1400w" sizes="(max-width: 900px) 96vw, 860px" width="1400" height="290" alt="Mr.Mudbelly Logo" class="logo-img">
+      <p class="tagline">Rock &amp; metal, puppet style</p>
+      <div class="intro">
+        <p>Welcome to Mr. Mudbelly's music videos and puppet parodies. Support the madness! Subscribe to request videos! Shop the affiliate store. Donate! Contact for collabs, commissions, and business inquiries.</p>
+      </div>
+      <div class="hero-ctas">
+        <a class="chip hot" href="#merch"><i class="fas fa-shirt"></i> New merch</a>
+        <a class="chip" href="#links"><i class="fas fa-bolt"></i> Watch &amp; follow</a>
+        <a class="chip" href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+      </div>
+    </div>
+    <div class="horizon" aria-hidden="true"></div>
   </header>
+  <div class="checker" aria-hidden="true"></div>
 
   <main>
-    <div class="intro">
-      <p>Welcome to Mr. Mudbelly's music videos and puppet parodies. Support the madness! Subscribe to request videos! Shop the affiliate store. Donate! Contact for collabs, commissions, and business inquiries.</p>
-    </div>
+    <section id="links">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Hover if you dare</div>
+          <h2>Get your Mudbelly on</h2>
+          <p class="sub">Watch, follow, shop and support. Every button has a cross-eyed side.</p>
+        </div>
 
     <div class="links-grid">
       <a href="https://walmrt.us/47r2fC7" class="link-card card-shop" target="_blank" rel="noopener noreferrer">
@@ -325,12 +581,92 @@
         </div>
       </a>
     </div>
+      </div>
+    </section>
 
+    <div class="checker" aria-hidden="true"></div>
+
+    <section id="merch" aria-labelledby="merch-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Official merch</div>
+          <h2 id="merch-title">Wear the Mudbelly</h2>
+          <p class="sub">Swipe or tap the arrows to flip through the shirts.</p>
+        </div>
+
+        <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Mr. Mudbelly merch">
+          <button class="car-btn car-prev" type="button" aria-label="Previous shirt"><i class="fas fa-chevron-left"></i></button>
+          <div class="car-track" tabindex="0">
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="1 of 5">
+              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/banner-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Banner Tee, black tee with the colorful Mr.Mudbelly logo" loading="eager"></a>
+              <div class="slide-info">
+                <div class="slide-num">01 / 05</div>
+                <h3 class="slide-name">Mr. Mudbelly Banner Tee</h3>
+                <div class="slide-price">$30</div>
+                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </article>
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
+              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-character-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/character-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Character Tee, black tee with the blue puppet in a circle" loading="lazy"></a>
+              <div class="slide-info">
+                <div class="slide-num">02 / 05</div>
+                <h3 class="slide-name">Mr. Mudbelly Character Tee</h3>
+                <div class="slide-price">$30</div>
+                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-character-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </article>
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
+              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-hoodie" target="_blank" rel="noopener noreferrer"><img src="img/shop/banner-hoodie.webp" width="800" height="1000" alt="Mr. Mudbelly Banner Hoodie, black hoodie with the colorful logo" loading="lazy"></a>
+              <div class="slide-info">
+                <div class="slide-num">03 / 05</div>
+                <h3 class="slide-name">Mr. Mudbelly Banner Hoodie</h3>
+                <div class="slide-price">$50</div>
+                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-banner-hoodie" target="_blank" rel="noopener noreferrer">Get this hoodie <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </article>
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
+              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-skull-band-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/skull-band-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Skull Band Tee, black tee with white sketch skull band art" loading="lazy"></a>
+              <div class="slide-info">
+                <div class="slide-num">04 / 05</div>
+                <h3 class="slide-name">Mr. Mudbelly Skull Band Tee</h3>
+                <div class="slide-price">$30</div>
+                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-skull-band-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </article>
+            <article class="slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
+              <a class="slide-img" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-racing-tee" target="_blank" rel="noopener noreferrer"><img src="img/shop/racing-tee.webp" width="800" height="1000" alt="Mr. Mudbelly Racing Tee, 90s racing all-over print" loading="lazy"></a>
+              <div class="slide-info">
+                <div class="slide-num">05 / 05</div>
+                <h3 class="slide-name">Mr. Mudbelly Racing Tee</h3>
+                <div class="slide-price">$40</div>
+                <a class="buy" href="https://mr-mudbelly-shop.fourthwall.com/products/mr-mudbelly-racing-tee" target="_blank" rel="noopener noreferrer">Get this shirt <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+          <button class="car-btn car-next" type="button" aria-label="Next shirt"><i class="fas fa-chevron-right"></i></button>
+          <div class="car-dots" role="group" aria-label="Choose a shirt"></div>
+        </div>
+
+        <div class="shop-all-wrap">
+          <a class="shop-all" href="https://mr-mudbelly-shop.fourthwall.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-bag-shopping"></i> Shop all merch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-card">
+          <img class="contact-pfp" src="img/mudbelly-pfp.webp" width="640" height="640" alt="Mr. Mudbelly, a blue puppet with pink hair" loading="lazy">
+          <div class="eyebrow">Collabs · Commissions · Business</div>
+          <h2>Let's make something loud</h2>
     <div class="contact-wrapper">
       <a href="mailto:mrmudbelly@gmail.com?subject=Hey%20Mr.Mudbelly%20-%20Contact%20/%20Collab" class="special-btn">
         <i class="fas fa-envelope"></i> Contact Me → mrmudbelly@gmail.com
       </a>
     </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -340,5 +676,50 @@
       <script type="text/javascript" src="https://counter.websiteout.com/js/9/0/1000/0"></script>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var root = document.querySelector('.carousel');
+    if (!root) return;
+    var track = root.querySelector('.car-track');
+    var slides = Array.prototype.slice.call(track.querySelectorAll('.slide'));
+    var dotsBox = root.querySelector('.car-dots');
+    var current = 0;
+    var dots = slides.map(function (s, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'car-dot';
+      b.setAttribute('aria-label', 'Show shirt ' + (i + 1) + ': ' + s.querySelector('.slide-name').textContent);
+      b.addEventListener('click', function () { go(i); });
+      dotsBox.appendChild(b);
+      return b;
+    });
+    function setActive(i) {
+      current = i;
+      dots.forEach(function (d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+    }
+    function go(i) {
+      var n = slides.length;
+      i = (i + n) % n;
+      track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+      setActive(i);
+    }
+    root.querySelector('.car-prev').addEventListener('click', function () { go(current - 1); });
+    root.querySelector('.car-next').addEventListener('click', function () { go(current + 1); });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1); }
+    });
+    var t;
+    track.addEventListener('scroll', function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        var i = Math.round(track.scrollLeft / track.clientWidth);
+        if (i !== current) setActive(Math.max(0, Math.min(slides.length - 1, i)));
+      }, 80);
+    }, { passive: true });
+    setActive(0);
+  })();
+  </script>
 </body>
 </html>
