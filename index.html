@@ -254,6 +254,19 @@
       transition: color 0.3s;
     }
 
+
+    /* Solid 3D shadow built from text copies (works even where Safari drops text-shadow) */
+    .link-card span { position: relative; isolation: isolate; }
+    .link-card span::before, .link-card span::after {
+      content: attr(data-label);
+      position: absolute; left: 2px; top: 2px;
+      color: #000; -webkit-text-stroke: 2px #000;
+      text-shadow: none; z-index: -1; pointer-events: none;
+    }
+    .link-card span::before { transform: translate(5px, 5px); }
+    .link-card span::after  { transform: translate(2.5px, 2.5px); }
+    @media (max-width: 420px) { .card-instagram span { font-size: 1.05rem; } }
+
     /* Individual card backgrounds */
     .card-shop::before     { background-image: url('https://i.imgur.com/L25Gr35.png'); }
     .card-cameo::before    { background-image: url('https://i.imgur.com/xaPIj4u.png'); }
@@ -592,56 +605,56 @@
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fas fa-shopping-cart"></i>
-          <span>Shop</span>
+          <span data-label="Shop">Shop</span>
         </div>
       </a>
       <a href="https://www.paypal.biz/mrmudbelly" class="link-card card-donate" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fas fa-heart"></i>
-          <span>Donate</span>
+          <span data-label="Donate">Donate</span>
         </div>
       </a>
       <a href="https://www.facebook.com/people/Mrmudbelly-Connected-Page/61573566361994" class="link-card card-facebook" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fab fa-facebook"></i>
-          <span>Facebook</span>
+          <span data-label="Facebook">Facebook</span>
         </div>
       </a>
       <a href="https://www.instagram.com/mr.mudbelly" class="link-card card-instagram" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fab fa-instagram"></i>
-          <span>Instagram</span>
+          <span data-label="Instagram">Instagram</span>
         </div>
       </a>
       <a href="https://www.youtube.com/@mr.mudbelly" class="link-card card-youtube" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fab fa-youtube"></i>
-          <span>YouTube</span>
+          <span data-label="YouTube">YouTube</span>
         </div>
       </a>
       <a href="https://www.tiktok.com/@mr.mudbelly" class="link-card card-tiktok" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fab fa-tiktok"></i>
-          <span>TikTok</span>
+          <span data-label="TikTok">TikTok</span>
         </div>
       </a>
       <a href="https://www.cameo.com/mr.mudbelly" class="link-card card-cameo" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fas fa-video"></i>
-          <span>Cameo</span>
+          <span data-label="Cameo">Cameo</span>
         </div>
       </a>
       <a href="https://distrokid.com/hyperfollow/mrmudbelly/mudbelly-blues" class="link-card card-puppets" target="_blank" rel="noopener noreferrer">
         <div class="color-overlay"></div>
         <div class="link-card-content">
           <i class="fas fa-bell"></i>
-          <span>Music</span>
+          <span data-label="Music">Music</span>
         </div>
       </a>
     </div>
