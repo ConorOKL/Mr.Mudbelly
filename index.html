@@ -247,6 +247,9 @@
       paint-order: stroke fill;
       text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000;
       transform: translate(-2px, -2px); /* optically centre the down-right extrusion */
+      display: inline-block;
+      padding: 2px 7px 7px 2px; /* room for the shadow so Safari doesn't clip it */
+      -webkit-font-smoothing: antialiased;
       white-space: nowrap;
       transition: color 0.3s;
     }
