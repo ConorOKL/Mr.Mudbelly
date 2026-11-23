@@ -463,6 +463,48 @@
     .visitor-counter a { color: var(--muted); opacity: .55; font-size: .75rem; }
     .visitor-counter p, .visitor-counter div { font-size: .75rem; opacity: .7; }
 
+
+    /* ---------- Mailing list ---------- */
+    #mailing-list { text-align: center; padding-top: 3.2rem; }
+    .mailing-card {
+      max-width: 640px; margin: 0 auto; padding: 2.2rem 1.6rem 2.4rem;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,214,10,.12), transparent 58%),
+        var(--bg2);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    #mailing-list .section-head { margin-bottom: 1.1rem; }
+    #mailing-list .ml-embedded { min-height: 0; }
+    /* The MailerLite form repeats the same heading and line; keep the site typography. */
+    #mailing-list .ml-form-embedContent h4,
+    #mailing-list .ml-form-embedContent p { display: none !important; }
+    /* Match the site's pink Contact Me button (higher specificity than MailerLite's injected CSS) */
+    #mailing-list .ml-subscribe-form.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button,
+    #mailing-list .ml-subscribe-form.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button {
+      background-color: #ff4d82 !important;
+      background-image: linear-gradient(45deg, #ff4d82, #ff80ff) !important;
+      color: #fff !important;
+      font-weight: bold !important;
+      border: none !important;
+      border-radius: 50px !important;
+      box-shadow: 0 0 30px rgba(255,77,130,0.7), 0 0 60px rgba(255,128,255,0.4) !important;
+      transition: all 0.3s !important;
+      cursor: pointer;
+    }
+    #mailing-list .ml-subscribe-form.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover,
+    #mailing-list .ml-subscribe-form.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button:hover {
+      background-color: #ff4d82 !important;
+      background-image: linear-gradient(45deg, #ff4d82, #ff80ff) !important;
+      color: #fff !important;
+      transform: scale(1.06);
+      box-shadow: 0 0 50px rgba(255,77,130,1), 0 0 80px rgba(255,128,255,0.7) !important;
+    }
+    @media (max-width: 600px) {
+      #mailing-list { padding-top: 2.2rem; }
+      .mailing-card { padding: 1.8rem 1.1rem 2rem; }
+    }
+
     /* Desktop: no perspective grid, tighter header, compact carousel */
     @media (min-width: 769px) {
       header { padding: 3.2rem 1rem 2.6rem; }
@@ -515,6 +557,14 @@
       .contact-card { padding: 2.6rem 1.1rem; }
     }
   </style>
+
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2818835');
+  </script>
 </head>
 <body>
   <header>
@@ -689,6 +739,19 @@
         <i class="fas fa-envelope"></i> Contact Me → mrmudbelly@gmail.com
       </a>
     </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mailing-list" aria-labelledby="mailing-list-title">
+      <div class="wrap">
+        <div class="mailing-card">
+          <div class="section-head">
+            <div class="eyebrow">Newsletter</div>
+            <h2 id="mailing-list-title">Join the Mudbelly Mailing List</h2>
+            <p class="sub">New puppet videos, merch drops and deals.</p>
+          </div>
+          <div class="ml-embedded" data-form="l53pIl"></div>
         </div>
       </div>
     </section>
